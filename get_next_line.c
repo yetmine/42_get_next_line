@@ -6,12 +6,17 @@
 /*   By: rabduras <rabduras@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/30 10:20:54 by rabduras          #+#    #+#             */
-/*   Updated: 2019/10/24 14:21:26 by rabduras         ###   ########.fr       */
+/*   Updated: 2019/11/29 14:55:38 by rabduras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include "libft/libft.h"
+
+/*
+** Function checks if chars remained from previous get_next_line() call
+** if so, joins remained with buffer and returns one line from the resulting
+** string.
+*/
 
 int		get_remained_chars(char **remained, char **line, int fd, char *buff)
 {
@@ -41,6 +46,12 @@ int		get_remained_chars(char **remained, char **line, int fd, char *buff)
 	}
 	return (0);
 }
+
+/*
+** Function for gettting one line from file descripter per call.
+** Returns 1 if function call was successfull, 0 if EOF was reached
+** and -1 if there was an error.
+*/
 
 int		get_next_line(const int fd, char **line)
 {
